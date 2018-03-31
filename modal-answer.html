@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* modal background */
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.4);
+}
+/* Modal Content(내용) */
+.modal-content {
+background-color: white;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
+height: 50%;
+}
+/* close button */
+.close {
+color : #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover, .close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+</style>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=W4ZXUk1lyT0LvXpYhmiP"></script>
+</head>
+    <body>
+    <h2>Modal Test</h2>
+    <button id="myBtn">Modal Button</button>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!--Modal Content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="map" style="width:30%;height:80%;margin:auto;"></div>
+            </div> 
+    </div>
+    
+    
+<script>
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 5
+    }
+
+    var map = new naver.maps.Map("map", mapOptions);
+    var jeju = new naver.maps.LatLng(33.3590628, 126.534361);
+
+    
+
+
+    /* 모달 */
+    // get the modal
+    var modal = document.getElementById("myModal");
+    // get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // click the button, open the modal
+    btn.onclick = function() {
+    modal.style.display = "block";
+    console.log("clicked");
+    }
+    // click the X button, close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    // click anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+    }
+</script>
+</body>
+</html>
+
+
